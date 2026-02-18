@@ -1,7 +1,11 @@
-function ShoppingList() {
+function ShoppingList({items}) {
   return (
     <ul>
-      <li>Eksempel vare</li>
+      {items.map((item) => (
+        <li key={item.id}>
+          {item.name} - {item.quantity}
+        </li>  
+      ))}
     </ul>
   )
 }
