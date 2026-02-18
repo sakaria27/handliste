@@ -1,10 +1,14 @@
-function ShoppingList({items}) {
+import ShoppingItem from "./ShoppingItem.jsx"
+
+function ShoppingList({items, toogleItem, change}) {
   return (
     <ul>
       {items.map((item) => (
-        <li key={item.id}>
-          {item.name} - {item.quantity}
-        </li>  
+        <ShoppingItem 
+        key= {item.id}
+        item={item}
+        toogleItem={toogleItem}
+        change={change} /> 
       ))}
     </ul>
   )
