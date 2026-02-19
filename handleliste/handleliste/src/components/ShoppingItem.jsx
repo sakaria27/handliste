@@ -1,4 +1,4 @@
-function ShoppingItem({item, toogleItem}) {
+function ShoppingItem({item, toogleItem, change}) {
     return(
         <li>
       <label>

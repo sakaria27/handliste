@@ -28,6 +28,16 @@ function App() {
      )
   }
 
+  function addItem(name, quantity) {
+    const newItem = {
+      id: date.now(),
+      name,
+      quantity,
+      purchased: false
+    }
+    setItems([newItem, ...items])
+  }
+
   return (
     <main>
       <section>
