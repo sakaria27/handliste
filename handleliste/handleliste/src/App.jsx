@@ -9,33 +9,35 @@ function App() {
   ]);
 
   function toogleItem(id) {
-  setItems(
-    items.map((item) =>
-      item.id === id
-        ? { ...item, purchased: !item.purchased }
-        : item
-    )
-  );
+  setItems((prevItems) =>
+  prevItems.map((item) =>
+    item.id === id
+     ? {...item, purchased: !item.purchased}
+     : item 
+)
+)
 }
   function change(id,value){
     if (value < 1) return;
-     setItems(
-      items.map((item) =>
+    
+    setItems((prevItems) =>
+      prevItems.map((item) =>
         item.id === id
-         ? { ...item, quantity: value}
-         : item
-    )
-     )
+          ? { ...item, quantity: value }
+          : item
+      )
+  )
   }
 
   function addItem(name, quantity) {
     const newItem = {
-      id: date.now(),
+      id: Date.now(),
       name,
       quantity,
       purchased: false
-    }
-    setItems([newItem, ...items])
+    };
+
+    setItems((prevItems) => [newItem, ...prevItems]);
   }
 
   return (
@@ -43,7 +45,7 @@ function App() {
       <section>
         <h1>Handleliste</h1>
 
-        <AddForm />
+        <AddForm  addItem={addItem}/>
         <ShoppingList 
         items={items}
         toogleItem ={toogleItem}
